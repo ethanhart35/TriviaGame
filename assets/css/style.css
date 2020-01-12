@@ -8,3 +8,6 @@ body{
     background-image: url(http://www.americaspace.com/wp-content/uploads/2013/01/13.jpg);
     background-image: 100%;
 }
+form{
+    background-color: lightgray;
+}

@@ -5,7 +5,7 @@ $( document ).ready(function() {
 //global vars
 var correct = 0;
 var incorrect = 0;
-var time = 5;
+var time = 30;
 var Q1 = $("#1-1").attr('value');
 var Q2 = $("#Q2").val();
 var Q3 = $("#Q3").val();
