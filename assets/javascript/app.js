@@ -5,15 +5,17 @@ $( document ).ready(function() {
 //global vars
 var correct = 0;
 var incorrect = 0;
-var time = 60;
+var time = 30;
 
 
 //function to count down from 60s
 
-setInterval(function() {
+var x = setInterval(function() {
     time--
     $("#timer").html(time)
-    console.log(time)
+    if(time < 1){
+        clearInterval(x)
+    }
 }, 1000);
 
 //check if answers are correct when time runs out or button is clicked
