@@ -1,66 +1,75 @@
-$( document ).ready(function() {
-    console.log( "ready!" );
-
-
 //global vars
 var correct = 0;
 var incorrect = 0;
 var time = 30;
-var Q1 = $("#1-1").attr('value');
-var Q2 = $("#Q2").val();
-var Q3 = $("#Q3").val();
-
-
-//function to count down from 60s
-
-var x = setInterval(function() {
-    time--
-    $("#timer").html(time)
-    if(time == 0){
-        clearInterval(x);
-        checkAnswers();
-    }
-}, 1000);
-
-//when timer gets to 0 or button is clicked then timer stops and score is shown.
+var Q1;
+var Q2;
+var Q3;
 
 
 
-
-//check if answers are correct when time runs out or button is clicked
-function checkAnswers(){
-     if(Q1 == 1){
-        correct++;
-        console.log(correct);
-    }
+$(document).ready(function () {
+    console.log("ready!");
+    
+    //function to count down from 60s
+function timer(){
+    var x = setInterval(function () {
+        time--
+        $("#timer").html(time)
+        if (time == 0) {
+            clearInterval(x);
+            checkAnswers();
+            console.log("Timer done")
+        }
+    }, 1000);
 }
-
-console.log(correct)
-
-//display correct and incorrect
-
-
-
+    //when timer gets to 0 or button is clicked then timer stops and score is shown.
+    $("#submitButton").on("click", function(){
+        
+        checkAnswers();
+    });
 
 
 
+    //check if answers are correct when time runs out or button is clicked
+    function checkAnswers(){
+        Q1 = $("input[name='question1']:checked").val();
+        Q2 = $("input[name='question2']:checked").val();
+        Q3 = $("input[name='question3']:checked").val();
+        $("#mainbody").hide();
+        $("#secondbody").show();
+    if(Q1 == "false"){
+        correct++;
+        console.log("yes" + correct);
+    }
+    else{
+        incorrect++;
+        console.log("no" + incorrect);
+    }
+    if(Q2 == "true"){
+        correct++;
+        console.log("yes" + correct);
+    }
+    else{
+        incorrect++;
+        console.log("no" + incorrect);
+    }
+    if(Q3 == "true"){
+        correct++;
+        console.log("yes" + correct);
+    }
+    else{
+        incorrect++;
+        console.log("no" + incorrect);
+    }
+    $("#right").text("Correct: "+correct);
+    $("#wrong").text("Incorrect: "+incorrect);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //display correct and incorrect
+$("#START").click(function(){
+    $("#mainbody").show();
+    timer();
+    $("#START").hide();
+});
 });

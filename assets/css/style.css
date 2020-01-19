@@ -11,3 +11,19 @@ body{
 form{
     background-color: lightgray;
 }
+#mainbody{
+    display: none;
+}
+#START{
+    width: 300px;
+    height: 100px;
+    margin-left: 33%;
+    margin-top: 200px;
+    background-color: green;
+}
+.answers{
+    text-align: center;
+    color: indigo;
+    margin-top: 200px;
+    background-color: grey;
+}
