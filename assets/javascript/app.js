@@ -5,7 +5,7 @@ var time = 30;
 var Q1;
 var Q2;
 var Q3;
-
+var x;
 
 
 $(document).ready(function () {
@@ -13,7 +13,7 @@ $(document).ready(function () {
     
     //function to count down from 60s
 function timer(){
-    var x = setInterval(function () {
+    x = setInterval(function () {
         time--
         $("#timer").html(time)
         if (time == 0) {
@@ -33,6 +33,7 @@ function timer(){
 
     //check if answers are correct when time runs out or button is clicked
     function checkAnswers(){
+        clearInterval(x);
         Q1 = $("input[name='question1']:checked").val();
         Q2 = $("input[name='question2']:checked").val();
         Q3 = $("input[name='question3']:checked").val();
@@ -68,8 +69,9 @@ function timer(){
 
     //display correct and incorrect
 $("#START").click(function(){
-    $("#mainbody").show();
     timer();
+    $("#mainbody").show();
+    $("#timer").html("30");
     $("#START").hide();
 });
 });
